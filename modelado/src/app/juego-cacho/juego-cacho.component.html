@@ -1,0 +1,72 @@
+<div>
+  <h2>Juego de Cacho</h2>
+  <label for="numLanzamientos">Número de lanzamientos:</label>
+  <input type="number" id="numLanzamientos" [(ngModel)]="numLanzamientos">
+  <button (click)="jugarCacho()">Jugar</button>
+</div>
+
+<table *ngIf="resultados.length > 0">
+  <thead>
+  <tr>
+    <th>Lanzamiento</th>
+    <th>Dados</th>
+    <th>Combinación</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let resultado of resultados">
+    <td>{{ resultado.lanzamiento }}</td>
+    <td>{{ resultado.dados.join(', ') }}</td>
+    <td>{{ resultado.combinacion }}</td>
+  </tr>
+  </tbody>
+</table>
+
+<div>
+  <ul>
+    <li>Combinaciones resultantes:</li>
+    <li>Cacho: {{ contadorCombinaciones.Cacho }}</li>
+    <li>Poker: {{ contadorCombinaciones.Poker }}</li>
+    <li>Full: {{ contadorCombinaciones.Full }}</li>
+    <li>Escalera: {{ contadorCombinaciones.Escalera }}</li>
+    <li>Trío: {{ contadorCombinaciones['Trío'] }}</li>
+    <li>Doble par: {{ contadorCombinaciones['Doble par'] }}</li>
+    <li>Par: {{ contadorCombinaciones.Par }}</li>
+    <li>Nada: {{ contadorCombinaciones.Nada }}</li>
+    <li></li>
+    <li>Promedio de cada combinación:</li>
+    <li>Cacho: {{ promedios.Cacho }}</li>
+    <li>Poker: {{ promedios.Poker }}</li>
+    <li>Full: {{ promedios.Full }}</li>
+    <li>Escalera: {{ promedios.Escalera }}</li>
+    <li>Trío: {{ promedios['Trío'] }}</li>
+    <li>Doble par: {{ promedios['Doble par'] }}</li>
+    <li>Par: {{ promedios.Par }}</li>
+    <li>Nada: {{ promedios.Nada }}</li>
+  </ul>
+</div>
+
+<div>
+    <textarea rows="8" cols="50" readonly>
+      Combinaciones resultantes:
+      Cacho: {{ contadorCombinaciones.Cacho }}
+      Poker: {{ contadorCombinaciones.Poker }}
+      Full: {{ contadorCombinaciones.Full }}
+      Escalera: {{ contadorCombinaciones.Escalera }}
+      Trío: {{ contadorCombinaciones.Tr&#237;o }}
+      Doble par: {{ contadorCombinaciones['Doble par'] }}
+      Par: {{ contadorCombinaciones.Par }}
+      Nada: {{ contadorCombinaciones.Nada }}
+
+      Promedio de cada combinación:
+      Cacho: {{ promedios.Cacho }}
+      Poker: {{ promedios.Poker }}
+      Full: {{ promedios.Full }}
+      Escalera: {{ promedios.Escalera }}
+      Trío: {{ promedios.Tr&#237;o }}
+      Doble par: {{ promedios['Doble par'] }}
+      Par: {{ promedios.Par }}
+      Nada: {{ promedios.Nada }}
+    </textarea>
+</div>
+
